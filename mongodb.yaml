@@ -7,7 +7,9 @@
       src: mongo.repo
       dest:  /etc/yum.repos.d/mongo.repo
   - name: installed the mongodb-org
-    ansible.builtin.services: dnf install mongodb-org -y 
+    ansible.builtin.dnf:
+    name: mongodb-org 
+    state: present
 
   - name: start and enable the mongod
     ansible.builtin.services: 
@@ -15,12 +17,12 @@
       state: started
       enabled: yes
 
-  - name: taking the remote access
+  - name: allowing the remote access
     ansible.builtin.replace:
       path: /etc/mongod.conf
       regexp: '127.0.0.1'
       replace: '0.0.0.0'  
-                 
+
   - name: Restart the MongoDB service
     ansible.builtin.service:
       name: mongod

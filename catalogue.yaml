@@ -38,7 +38,7 @@
       dest: /tmp/catalogue.zip
 
   - name: unzip the catalogue file
-    ansible.buitin.unarchive:
+    ansible.buitin.unarchieve:
       src: /tmp/catalogue.zip
       dest: cd /app 
       

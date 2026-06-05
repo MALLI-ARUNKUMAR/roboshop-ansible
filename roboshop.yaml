@@ -2,8 +2,8 @@
   hosts: all
   connection: local
   vars:
-   sg_id:
-   ami_id:
+   sg_id: sg-036850fbe33be2230
+   ami_id: ami-0220d79f3f480ecf5
    env: dev
    instances:
    - mongodb
@@ -22,5 +22,10 @@
       Environment: "{{ env }}"
       Name: "{{ item }}-{{ env }}"
     loop: "{{ instances }}"
+    register: ec2_output
+
+  - name: print the ec2_output
+    ansible.builtin.debug:
+      msg: "{{ ec2_output }}"  
 
 

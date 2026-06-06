@@ -48,7 +48,7 @@
        
   - name: copy the systemctl services
     ansible.builtin.template:
-      src: user.services
+      src: user.service
       dest: /etc/systemd/system/user.service
 
   - name: system demonreload

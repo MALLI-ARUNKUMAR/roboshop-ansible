@@ -47,7 +47,7 @@
       path: /app    
        
   - name: copy the systemctl services
-    ansible.builtin.copy:
+    ansible.builtin.template:
       src: user.services
       dest: /etc/systemd/system/user.service
 

@@ -10,7 +10,7 @@
       name: nodejs
       state: present
 
-  - name:  creating the roboshop cart
+  - name: creating the roboshop cart
     ansible.builtin.cart:
       name: roboshop
       system: true

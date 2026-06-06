@@ -21,7 +21,7 @@
       regexp: 'yes'
       line: yes=no    
 
-  - name: Start & Enable Redis Service
+  - name: Start and Enable Redis 
     ansible.builtin.services:
       name: redis
       state: restarted

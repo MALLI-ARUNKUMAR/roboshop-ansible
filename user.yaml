@@ -37,7 +37,11 @@
     ansible.builtin.get_url:
       url: https://roboshop-artifacts.s3.amazonaws.com/user-v3.zip
       dest: /tmp/user.zip 
-
+  - name: unarchive the user file
+    ansible.builtin.unarchive:
+      src: /tmp/user.zip
+      dest: /app 
+      remote_src: yes
   - name: Install packages npm.
     community.general.npm:
       path: /app    
